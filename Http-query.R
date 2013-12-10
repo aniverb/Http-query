@@ -112,7 +112,7 @@ extractJournal <- function(query.term = query) {
     # Parse XML into XML Tree
     xml.data <- xmlTreeParse(pub.efetch[[i]], useInternalNodes = TRUE)
     # Use xpathSApply to extract Journal name
-    xpathSApply(xml.data, "//PubmedArticle/MedlineCitation/AuthorList/Author/LastName", xmlValue)
+    xpathSApply(xml.data, "//PubmedArticle/MedlineCitation/MedlineJournalInfo/MedlineTA", xmlValue)
   })
   journal <- unlist(tmp)
   # Show how many journals that were extracted
